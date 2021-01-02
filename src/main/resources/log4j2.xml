@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" strict="true"
+  name="BatchEmailSenderLog" monitorInterval="5">
+  <Properties>
+    <Property name="fileName">BatchEmailSender</Property>
+    <Property name="archiveFileName">BatchEmailSenderArchive</Property>
+    <Property name="notSentFileName">ErrorNotSent</Property>
+    <Property name="logPath">logs</Property>
+  </Properties>
+  <Filter type="ThreasholdFilter" level="trace" />
+  <Appenders>
+    <Console name="STDOUT">
+      <Filters>
+        <Filter type="MarkerFilter" marker="CONSOLE"     onMatch="ACCEPT"   onMismatch="NEUTRAL" />
+        <ThresholdFilter level="WARN"                    onMatch="ACCEPT"   onMismatch="DENY" />
+      </Filters>
+      <Layout type="PatternLayout"
+        pattern="%d{HH:mm:ss.SSS} [%t] %-5level [%X] %logger{36}:%L - %msg%n" />
+    </Console>
+    <RollingFile name="File"
+      fileName="${logPath}/${fileName}.log"
+      filePattern="${logPath}/${fileName}_%d{yyyyMMdd}-%i.log.gz">
+      <Filters>
+        <Filter type="MarkerFilter" marker="EMAIL_ARCHIVE"
+          onMatch="DENY" onMismatch="NEUTRAL" />
+      </Filters>
+      <Layout type="PatternLayout"
+        pattern="%d R=%r %5p [%t] %X %x %notEmpty{[%marker]} []%X] %C{2.}.%M:%L %m%n" />
+
+      <Policies>
+        <SizeBasedTriggeringPolicy size="200 MB" />
+        <OnStartupTriggeringPolicy />
+      </Policies>
+    </RollingFile>
+    <RollingFile name="EmailArchive"
+      fileName="${logPath}/${archiveFileName}.log"
+      filePattern="${logPath}/${archiveFileName}_%d{yyyyMMdd}-%i.log.gz">
+      <Filters>
+        <Filter type="MarkerFilter" marker="EMAIL_ARCHIVE"       onMatch="ACCEPT"   onMismatch="DENY" />
+      </Filters>
+      <Layout type="PatternLayout"
+        pattern="%d R=%r %5p [%t] %X %x %notEmpty{[%marker]} []%X] %C{2.}.%M:%L %m%n" />
+
+      <Policies>
+        <SizeBasedTriggeringPolicy size="1024 MB" />
+        <OnStartupTriggeringPolicy />
+      </Policies>
+    </RollingFile>
+    <RollingFile name="ErrorNotSent"
+      fileName="${logPath}/${notSentFileName}.log"
+      filePattern="${logPath}/${notSentFileName}_%d{yyyyMMdd}-%i.log.gz">
+      <Filters>
+        <Filter type="MarkerFilter" marker="NOT_SENT"       onMatch="ACCEPT"   onMismatch="DENY" />
+      </Filters>
+      <Layout type="PatternLayout"
+        pattern="%d R=%r %5p [%t] %X %x %notEmpty{[%marker]} []%X] %C{2.}.%M:%L %m%n" />
+
+      <Policies>
+        <SizeBasedTriggeringPolicy size="1024 MB" />
+        <OnStartupTriggeringPolicy />
+      </Policies>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Logger name="org" level="info" />
+    <Logger name="com" level="info" />
+
+    <Root level="debug">
+      <AppenderRef ref="STDOUT" />
+      <AppenderRef ref="File" />
+      <AppenderRef ref="EmailArchive" />
+    </Root>
+  </Loggers>
+</Configuration>
