@@ -87,7 +87,7 @@ Single line comments start with `[--`, end with `--]` and must take up an entire
 
 All emails sent by running the project from the command line use HTML format, so the template may contain all HTML elements supported in emails. The `<br>` element is automatically added to the end of every line except the last one so that lines still work in an intuitive manner.
 
-A sample template file is shown below:
+A sample template file is shown below. See also: [doc/templates/EmailTemplate.txt](doc/templates/EmailTemplate.txt)
 
 ```
 [TO]
@@ -118,7 +118,7 @@ path\to\Image.png
 ### Config Format
 The config file specifies the SMTP properties as well as the username and pasword. It is a properties file.
 
-A sample config file is shown below:
+A sample config file is shown below for a Gmail account. See also: [doc/templates/Config.properties](doc/templates/Config.properties)
 
 ```
 username=some@gmail.com
