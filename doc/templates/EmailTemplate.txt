@@ -1,0 +1,22 @@
+[TO]
+${EMAIL}
+[-- This is a comment and will be ignored --]
+[-- Note that the separators with at least 3 dashes below are necessary after each section --]
+--------
+[CC]
+someemail@email.com
+anotheremail@email.com
+--------
+[BCC]
+--------
+[SUBJECT]
+Some subject, ${FIRSTNAME}!
+--------
+[BODY]
+Hello ${FIRSTNAME},
+
+Lorem ipsum dolor sit amet...
+--------
+[ATTACHMENTS]
+pathtofolder/${FIRSTNAME}.png
+--------
