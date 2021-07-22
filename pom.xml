@@ -149,7 +149,7 @@
 	</build>
 	<profiles>
 		<profile>
-			<id>cmd</id>
+			<id>cli</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -157,7 +157,7 @@
 						<configuration>
 							<archive>
 								<manifest>
-									<mainClass>com.ltpeacock.batchemailsender.BatchMailSender</mainClass>
+									<mainClass>com.ltpeacock.batchemailsender.cli.BatchMailSender</mainClass>
 								</manifest>
 							</archive>
 							<appendAssemblyId>false</appendAssemblyId>
