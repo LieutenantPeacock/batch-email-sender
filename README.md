@@ -25,7 +25,7 @@ There are two distributions: a stand-alone jar and a Maven library.
 To package the project as a single stand-alone jar:
 
 ```
-mvn clean compile assembly:single
+mvn clean compile assembly:single -Pcli
 ```
 
 To use this as a library in a project, include the dependency.
@@ -35,8 +35,10 @@ To use this as a library in a project, include the dependency.
 To run the project:
 
 ```
-java -jar -Dconfig=..\Config.properties -Ddata=..\Data.csv -Dtemplate=..\Template.txt pathtojar\batch-email-sender.jar
+java -jar -Dconfig=pathto\Config.properties -Ddata=pathto\Data.csv -Dtemplate=pathto\Template.txt pathtojar\batch-email-sender.jar
 ```
+
+The example command above is for Windows. On Unix, forward slashes should be used instead of backslashes. (Forward slashes also work for Windows.)
 
 ### Parameters
 (Set these using `-DparamName=paramValue`)
