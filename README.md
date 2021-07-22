@@ -24,7 +24,7 @@ There are two distributions: a stand-alone jar and a Maven library.
 
 To package the project as a single stand-alone jar:
 
-```
+```console
 mvn clean compile assembly:single -Pcli
 ```
 
@@ -34,7 +34,7 @@ To use this as a library in a project, include the dependency.
 
 To run the project:
 
-```
+```console
 java -jar -Dconfig=pathto\Config.properties -Ddata=pathto\Data.csv -Dtemplate=pathto\Template.txt pathtojar\batch-email-sender.jar
 ```
 
@@ -74,7 +74,7 @@ The example command above is for Windows. On Unix, forward slashes should be use
 ### Specifying Parameters Via Properties File
 There is an optional first argument to indicate the path to the properties file that specifies parameters. Command line parameters take precedence over these.
 
-```
+```console
 java -jar pathtojar\batch-email-sender.jar pathtoproperties\Run.properties
 ```
 
@@ -161,7 +161,7 @@ For a dry run where no emails are actually sent, pass in `true` as the second ar
 
 Next, construct a `MailWorker` to send the batch templated emails.
 
-````java
+```java
 MailWorker mailWorker = new MailWorker(mailSender);
 ```
 
