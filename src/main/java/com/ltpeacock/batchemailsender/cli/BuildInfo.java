@@ -1,4 +1,4 @@
-package com.ltpeacock.batchemailsender;
+package com.ltpeacock.batchemailsender.cli;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +11,7 @@ import java.util.Properties;
  * @author LieutenantPeacock
  *
  */
-public class BuildInfo {
+class BuildInfo {
 	public static final String BUILD_VERSION = "git.build.version";
 	public static final String BUILD_TIME = "git.build.time";
 	private static Map<String, String> map;
@@ -21,7 +21,7 @@ public class BuildInfo {
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static void init(){
+	private static void init(){
 		if (map == null) {
 			try (InputStream is = BuildInfo.class.getResourceAsStream("/git.properties")) {
 				final Properties properties = new Properties();

@@ -1,4 +1,4 @@
-package com.ltpeacock.batchemailsender;
+package com.ltpeacock.batchemailsender.cli;
 import static com.ltpeacock.batchemailsender.LogMarkers.CONSOLE;
 
 import java.io.File;
@@ -9,6 +9,10 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.ltpeacock.batchemailsender.BasicMailSender;
+import com.ltpeacock.batchemailsender.EmailTemplateParser;
+import com.ltpeacock.batchemailsender.MailServerInfo;
+import com.ltpeacock.batchemailsender.MailWorker;
 import com.ltpeacock.batchemailsender.exception.MailSendingException; 
 
 /**
