@@ -153,7 +153,7 @@ Mary Doe,mary.joe@email.com
 
 ## Programmatic Usage
 
-First, construct an instance of `MailSender`. This can be your own implementation of the provided `BasicMailSender`.
+First, construct an instance of `MailSender`. This can be your own implementation or the provided `BasicMailSender`.
 
 `BasicMailSender` requires a `MailServerInfo` with the host, port, username, and password, as well as a parameter indicating whether or not to use TLS. The class contains a builder that can be used for more convenient instantiation.
 
