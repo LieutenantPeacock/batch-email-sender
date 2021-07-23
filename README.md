@@ -28,7 +28,17 @@ To package the project as a single stand-alone jar:
 mvn clean compile assembly:single -Pcli
 ```
 
-To use this as a library in a project, include the dependency.
+For those who do not want to build it manually, batch-email-sender-cli.jar can be downloaded from any of the [releases](https://github.com/LieutenantPeacock/batch-email-sender/releases) for direct use.
+
+This project is also available as a [Maven artifact](https://search.maven.org/artifact/com.lt-peacock/batch-email-sender/1.1.2/jar). Maven users can include the library with the following dependency in pom.xml:
+
+```xml
+<dependency>
+  <groupId>com.lt-peacock</groupId>
+  <artifactId>batch-email-sender</artifactId>
+  <version>1.1.2</version>
+</dependency>
+```
 
 ## Running from the Command Line
 
