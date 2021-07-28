@@ -20,6 +20,8 @@ A common use of a replaceable parameter is to set the recipient of each email ba
 
 # Usage
 ## Installation
+JDK 1.8 is required at a minimum.
+
 There are two distributions: a stand-alone jar and a Maven library.
 
 To package the project as a single stand-alone jar:
